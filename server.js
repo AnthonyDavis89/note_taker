@@ -5,7 +5,7 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 const fs = require("fs");
 
-let notes = require("./db.json");
+let notes = require("./db/db.json");
 
 // starts the server to begin listening
 app.listen(PORT, function () {
