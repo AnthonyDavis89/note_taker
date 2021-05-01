@@ -38,9 +38,17 @@ app.get("/api/notes", (req,res) => {
   const newNote = req.body;
   notes.push(newNote);
   fs.writeFile(path.join(__dirname, './db/db.json'), JSON.stringify(notes), (err) => {
-    if (err) {
-      throw err;
-    }
+    if(err)throw err;
+    res.json(notes);
+  });
+});
+
+app.delete("/api/notes/:id" , (res,req) => {
+  notes = notes.filter(function (notes) {
+    return notes.id != req.params.id;
+  });
+  fs.writeFile(path.join(__dirname, './db/db.json'), JSON.stringify(notes), (err) => {
+    if(err)throw err;
     res.json(notes);
   });
 });
