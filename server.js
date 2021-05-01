@@ -27,7 +27,7 @@ app.get("/notes", function (req, res) {
 });
 
 app.get("/api/notes", function (req,res){
-  res.sendFile(notes);
+  res.json(notes);
 });
 
 app.get('*', (req,res) => {
